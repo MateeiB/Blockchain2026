@@ -12,10 +12,10 @@ def valid_hash(email: str, github_url: str, nonce: int) -> bool:
     result = hashlib.sha256(data).digest()
     
     return (
-        result[0] == 0 #and
-        # result[1] == 0 and
-        # result[2] == 0 and
-        # result[3] < 0x10
+        result[0] == 0 and
+        result[1] == 0 and
+        result[2] == 0 and
+        result[3] < 0x10
     )
 
 def mine(email: str, github_url: str) -> int:
