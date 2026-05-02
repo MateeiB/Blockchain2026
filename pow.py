@@ -27,7 +27,7 @@ def mine(email: str, github_url: str) -> int:
         nonce += 1
 
 if __name__ == "__main__":
-    email = "example@student.tudelft.nl"
+    email = "m.bordea@student.tudelft.nl"
     github_url = "https://github.com/MateeiB/Blockchain2026"
 
     # testing
