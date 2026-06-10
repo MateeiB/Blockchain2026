@@ -34,6 +34,7 @@ class Lab1Community(Community):
         self.server_pk = bytes.fromhex("4c69624e61434c504b3a86b23934a28d669c390e2d1fc0b0870706c4591cc0cb178bc5a811da6d87d27ef319b2638ef60cc8d119724f4c53a1ebfad919c3ac4136c501ce5c09364e0ebb")
         self.add_message_handler(ResponsePayload, self.on_response)
     
+    #had issues with lazy wrapper so i did parsing by hand
     def on_response(self, source_address, data):
         index = 23 # here i have the header(community and stuff)
         # Read the sender pubkey (server pk is in msg??)
@@ -56,6 +57,7 @@ class Lab1Community(Community):
         print(f"Success: {success}")
         print(f"Message: {message}")
 
+    # send to the correct peer
     def send(self, nonce:int):
         for peer in self.get_peers():
             if peer.public_key.key_to_bin() == self.server_pk:

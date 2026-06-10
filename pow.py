@@ -1,5 +1,6 @@
 import hashlib
 
+# check if a hash is valid
 def valid_hash(email: str, github_url: str, nonce: int) -> bool:
     data = (
         email.encode("utf-8") +
@@ -18,6 +19,7 @@ def valid_hash(email: str, github_url: str, nonce: int) -> bool:
         result[3] < 0x10
     )
 
+# search for a valid hash as per the task
 def mine(email: str, github_url: str) -> int:
     nonce = 0
     
