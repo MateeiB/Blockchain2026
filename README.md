@@ -2,6 +2,12 @@
 
 Course code for the 3 IPv8 labs.
 
+## Collaboration
+
+Labs 2 and 3 were group efforts. The team's shared development repository is at https://github.com/AlexDC-2003/blockchain-common, where contributions are visible across all members. This personal repo contains my mirrored copy of the final code as required by the course (each member's Lab 1 GitHub URL is the registered submission point for the rest of the course).
+
+The team coordinated through Discord (planning, live coding sessions, and grading runs) and divided work across phases for both lab assignment 2 and lab assignment 3.
+
 ## Setup
 
 ```bash
@@ -97,6 +103,20 @@ python community.py
 ```
 
 Each node joins the blockchain community, discovers the others, and starts mining. The server queries us in the background; pass confirmation can be seen when running part1 again after a good looking run.
+
+### Tests
+
+Unit tests for the chain primitives and single-node mining + validation live in `assignment3/tests/`. Run them with `pytest` from a virtualenv:
+
+```bash
+cd assignment3
+python3 -m venv .venv          # needs python3-venv (sudo apt install python3-venv)
+source .venv/bin/activate
+pip install pytest
+pytest tests/
+```
+
+`tests/conftest.py` puts `assignment3/` on `sys.path` so the tests import `chain`/`node` the same way the rest of the code does. Always run via `pytest` (not `python3 tests/test_chain.py` directly), otherwise the import path isn't set up.
 
 ### Notes
 - Uses the same `my_key.pem` from Lab 1.
